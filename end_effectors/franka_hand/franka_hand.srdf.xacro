@@ -7,16 +7,16 @@
       <link name="${prefix}leftfinger"/>
       <link name="${prefix}rightfinger"/>
       <joint name="${prefix}finger_joint1"/>
-      <passive_joint name="${prefix}finger_joint2"/>
+      <joint name="${prefix}finger_joint2"/>
     </group>
 
     <group_state name="open" group="${prefix}hand">
-      <joint name="${prefix}finger_joint1" value="0.035"/>
-      <joint name="${prefix}finger_joint2" value="0.035"/>
+      <joint name="${prefix}finger_joint1" value="0.03"/>
+      <!-- <joint name="${prefix}finger_joint2" value="0.03"/> -->
     </group_state>
     <group_state name="close" group="${prefix}hand">
-      <joint name="${prefix}finger_joint1" value="0"/>
-      <joint name="${prefix}finger_joint2" value="0"/>
+      <joint name="${prefix}finger_joint1" value="0.00"/>
+      <!-- <joint name="${prefix}finger_joint2" value="0.01"/> -->
     </group_state>
     <end_effector name="${prefix}hand" parent_link="${prefix}link8" group="${prefix}hand" parent_group="${prefix}arm"/>
 
