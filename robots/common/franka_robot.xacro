@@ -31,8 +31,8 @@
                       connected_to:='base'">
                       
     <xacro:include filename="$(find franka_description)/robots/common/utils.xacro" />
-
     <xacro:include filename="$(find franka_description)/robots/common/franka_arm.xacro" />
+    <xacro:include filename="$(find franka_description)/robots/common/_d435.urdf.xacro" />
 
     <xacro:franka_arm
       arm_id="${arm_id}"
@@ -169,11 +169,19 @@
     </xacro:if>
 
     <xacro:if value="${use_camera}">
-      <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro"/>
+      <xacro:include filename="$(find franka_description)/robots/common/_d435.urdf.xacro"/>
       <xacro:sensor_d435 name="camera" parent="${arm_prefix}${arm_id}_link8">
         <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:sensor_d435>
+  
     </xacro:if>
+
+    <!-- <xacro:if value="${use_camera}">
+      <xacro:include filename="$(find realsense_gazebo_plugin)/xacro/depthcam.xacro"/>
+      <xacro:realsense_d435 sensor_name="d435" parent_link="${arm_prefix}${arm_id}_link8" rate="10">
+        <origin rpy="0 0 0 " xyz="0 0 0"/>
+      </xacro:realsense_d435>
+    </xacro:if> -->
 
     <xacro:if value="${ros2_control}">
       <xacro:include filename="$(find franka_description)/robots/common/franka_arm.ros2_control.xacro"/>
