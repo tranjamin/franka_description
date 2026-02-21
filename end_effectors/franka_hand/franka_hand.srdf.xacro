@@ -11,7 +11,7 @@
     </group>
 
     <group_state name="open" group="${prefix}hand">
-      <joint name="${prefix}finger_joint1" value="0.03"/>
+      <joint name="${prefix}finger_joint1" value="0.05"/>
       <!-- <joint name="${prefix}finger_joint2" value="0.03"/> -->
     </group_state>
     <group_state name="close" group="${prefix}hand">
